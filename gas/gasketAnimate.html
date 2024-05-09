@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script id="vertex-shader" type="x-shader/x-vertex">
+            #version 300 es
+            in vec4 aPosition;
+            in vec4 aColor;
+            uniform float xShift;
+            uniform float uOrientation;
+            out vec4 vColor;
+            void main()
+            {
+                gl_PointSize = 1.0;
+                gl_Position.x  = aPosition.x + xShift;
+                gl_Position.y = uOrientation*aPosition.y;
+                gl_Position.z = 0.0;
+                gl_Position.w = 1.0;
+                vColor = aColor; // vec4((1.0+aPosition)/2.0);
+            }
+        </script>
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            #version 300 es
+            precision mediump float;
+            in vec4 vColor;
+            out vec4 fColor; // color to output
+
+            void main()
+            {
+                fColor = vColor;
+            }
+        </script>
+        <script type="text/javascript" src="./Common/initShaders.js"></script>
+        <!-- this is an HTML comment -->
+        <script type="text/javascript" src="./Common/MV.js"></script>
+        <script type="text/javascript" src="gasketAnimate.js"></script>
+    </head>
+    <body>
+        <canvas id="gl-canvas" width="512" height="512"></canvas>
+        <button id="stop">Stop</button>
+        <button id="start">Start</button>
+
+        <br />
+        Delay in (ms): <input type="number" min ="1" max="1000" id="delay-box">
+        <button id="submitDelay">Enter delay</button>
+        
+    </body>
+</html>

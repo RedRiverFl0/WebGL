@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    #version 300 es
+    in vec4 aPosition;
+
+    uniform float xShift;
+    uniform vec2 u_translation;
+
+    void main() {
+      gl_Position = vec4(aPosition.xy + u_translation, 0.0, 1.0);
+      gl_Position.x += xShift;
+    }
+  </script>
+
+  <script id="fragment-shader" type="x-shader/x-fragment">
+    #version 300 es
+    precision mediump float;
+    out vec4 fColor;
+    uniform vec4 uColor; // Add a uniform color variable
+
+    void main() {
+      fColor = uColor; // Use the uniform color variable
+    }
+  </script>
+  <script type="text/javascript" src="./Common/initShaders.js"></script>
+  <script type="text/javascript" src="./Common/MV.js"></script>
+  <script type="text/javascript" src="Frogger.js"></script>
+</head>
+
+<div id="message" style="text-align: center; font-size: 24px;"></div>
+
+<body>
+  <canvas id="gl-canvas" width="512" height="512" style="border-style: dashed;"></canvas>
+  <br />
+  <button id="stop">Stop</button>
+  <button id="start">Start</button>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+Hello!
+
+You have the just got a fresh copy of our Frogger game!
+Now we do have some warnings and some instructions to allow this
+code to work properly, put the mp3 files and the common folder in the same folder as the
+html and js file so that they will be in one workspace or folder. so all files can be in one folder
+do not take out the js files out of the common folder!
+
+
+
+WARNING CONTAINS FLASHING LIGHTS ON CARS
+
+So be careful 
+
+The students of Professor Weiss
+Derek and Chase
